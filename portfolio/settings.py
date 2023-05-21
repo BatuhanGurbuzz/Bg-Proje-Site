@@ -23,14 +23,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 
-SECRET_KEY = getenv("SECRET_KEY")
+SECRET_KEY = '632g)b7bc(ar!h(0-iln^%5(r%x5)zo73rfysfk5f&69bvjgw0'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = getenv("IS_DEVELOPMENT", True)
+DEBUG = True
 
-ALLOWED_HOSTS = [
-    getenv("APP_HOST")
-]
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -85,12 +83,8 @@ WSGI_APPLICATION = 'portfolio.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'bg-proje',
-        'USER': 'batuhan_gurbuz',
-        'PASSWORD': '123456654fb',
-        'HOST': 'localhost',
-        'PORT': '',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
 
