@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block page_title %} Anasayfa {% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 align-self-center">
+                <p class="text-uppercase text-danger fw-bold fs-2">
+                    Merhaba!
+                    <p class="fs-3 text-light">Sayfama hoşgeldin.</p>
+                </p>
+                
+                <p>
+                    <p class="text-light">
+                        Projelerime göz atmak istersen veya benimle iletişime geçmek istersen aşağıdaki butonları kullanabilirsin
+                    </p>
+                        <a class="btn btn-outline-info btn-lg" href="{% url 'pages_proje' %}">Projeler</a>
+                        <a class="btn btn-outline-danger btn-lg" href="{% url 'pages_contact'%}">İletişim</a>
+                </p>
+                    
+                
+            </div>
+            <div class="col-md-6">
+                <img class='img-fluid float-end' src="{% static 'b1.png' %}" alt="">
+            </div>
+        </div>
+    </div>
+{% endblock %}

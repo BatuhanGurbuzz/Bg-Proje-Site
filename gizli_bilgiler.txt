@@ -1,0 +1,10 @@
+SECRET_KEY=632g)b7bc(ar!h(0-iln^%5(r%x5)zo73rfysfk5f&69bvjgw0
+EMAIL_HOST_PASSWORD=tzyaqblpffwkkbet
+DB_ENGINE=django.db.backends.mysql
+DB_NAME=bg-proje
+DB_USER=batuhan_gurbuz
+DB_PASSWORD=123456654fb
+DB_HOST=localhost
+DB_PORT=
+DATABASE_URL=sqlserver://myusername:mypassword@localhost:1433/mydatabase
+DJANGO_SETTINGS_MODULE=portfolio.settings

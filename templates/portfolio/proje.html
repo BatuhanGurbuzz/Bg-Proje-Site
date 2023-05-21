@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block page_title %} Anasayfa {% endblock %}
+{% block css_files %}
+    <link rel="stylesheet" href="{% static 'courses/css/style.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <p class="text-uppercase text-danger fw-bold fs-1">
+                Proje sayfasına Hoşgeldin!
+            </p>
+            
+            <p>
+                <p class="text-light fs-5">
+                    Projelerime göz atmak istersen altında bulunan butonlara tıklayabilirsin bu butonlar seni benim github adresime yönlendirecektir. Ayrıca github adresime ulaşmak ve bana mail göndermek istersen aşağıda ki butonları kullanabilirsin.
+                </p>
+                    <a class="btn btn-outline-info btn-lg me-3 text-light" href="{% url 'pages_proje' %}">Github</a>
+                    <a class="btn btn-outline-danger btn-lg" href="{% url 'pages_contact'%}">Mail Gönder</a>
+            </p>
+                
+            
+        </div>
+        <div class="col-md-6">
+            {% for item in project %}
+                <div class="card my-3">
+                    <div class="row g-0">
+                        <div class="col-md-7">
+                            <img src="{{item.image.url}}" class="img-fluid" alt="">
+                        </div>
+                        <div class="col-md-5">
+                            <div class="card-body">
+                                <h5 class="card-title">{{item.title}}</h5>
+                                <p class="card-text">
+                                    {{item.description}}
+                                </p>
+                                <a class="btn btn-dark btn-lg" href="{{item.url}}">Proje kodlarını incele</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}

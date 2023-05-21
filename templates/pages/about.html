@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block page_title %} Hakkımda {% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-sm-4">
+                <img class='img-fluid float-end' src="{% static 'b2.png' %}" alt=""> 
+            </div>
+            <div class="col-md-6 col-sm-8 text-dark">
+                <p>
+                    <button class="btn btn-info btn-lg my-2 text-white" type="button" data-bs-toggle="collapse" data-bs-target="#sertifika" aria-expanded="false" aria-controls="sertifika">
+                      Sertifikalar
+                    </button>
+                </p>
+                <div style="min-height: 150px; max-width: 200;">
+                    <div class="collapse collapse-horizontal" id="sertifika">
+                      <div class="card card-body" style="width: 300px;">
+                        {% for item in certificate %}
+                            <a class="link-info link-underline-opacity-0 link-underline-opacity-100-hover" href="{{item.url}}">{{item.name}}</a>
+                        {% endfor %}
+                      </div>
+                    </div>
+                </div>
+                <p class="mb-2">
+                        <button class="btn btn-info btn-lg my-2 text-white" type="button" data-bs-toggle="collapse" data-bs-target="#personal-info" aria-expanded="false" aria-controls="personal-info">
+                        Kişisel Bilgiler
+                        </button>
+                </p>
+                <div style="min-height: 120px; max-width: 200;">
+                    <div class="collapse collapse-horizontal" id="personal-info">
+                      <div class="card card-body text-uppercase" style="width: 300px;">
+                        {% for item1 in personal_info %}
+                        <p class="text-danger">
+                            {{item1.name}} {{item1.last_name}}
+                        </p>
+                        <p class="text-dark">
+                            {{item1.mail}}
+                        </p>
+                        <p class="text-dark">
+                            {{item1.school}}
+                        </p>
+                        <p class="text-dark">
+                            {{item1.language}} dilinde kendimi geliştirmekteyim.
+                        </p>
+                    {% endfor %}
+                      </div>
+                    </div>
+                </div>
+                   <p>
+                        <button class="btn btn-info btn-lg my-2 text-white" type="button" data-bs-toggle="collapse" data-bs-target="#social-media" aria-expanded="false" aria-controls="social-media">
+                                Sosyal Medya
+                        </button>
+                    </p>
+                    <div style="min-height: 150px; max-width: 200;">
+                        <div class="collapse collapse-horizontal" id="social-media">
+                            <div class="card card-body" style="width: 300px;">
+                                {% for item2 in social_media %}
+                        <p>
+                            <a class="link-underline-opacity-0 link-info link-underline-opacity-100-hover" href="{{item2.url}}">
+                                {{item2.name}}
+                            </a>
+                            
+                        </p>
+                    {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
