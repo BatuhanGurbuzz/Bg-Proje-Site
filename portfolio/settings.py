@@ -13,7 +13,6 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 import os
 from os import getenv
 from pathlib import Path
-from decouple import config
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -24,13 +23,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 
-SECRET_KEY = os.getenv('SECRET_KEY')
+SECRET_KEY = getenv("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.getenv("IS_DEVELOPMENT", True)
+DEBUG = getenv("IS_DEVELOPMENT", True)
 
 ALLOWED_HOSTS = [
-    os.getenv("APP_HOST")
+    getenv("APP_HOST")
 ]
 
 
@@ -86,12 +85,12 @@ WSGI_APPLICATION = 'portfolio.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': os.getenv('DB_ENGINE'),
-        'NAME': os.getenv('DB_NAME'),
-        'USER': os.getenv('DB_USER'),
-        'PASSWORD': os.getenv('DB_PASSWORD'),
-        'HOST': os.getenv('DB_HOST'),
-        'PORT': os.getenv('DB_PORT'),
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'bg-proje',
+        'USER': 'batuhan_gurbuz',
+        'PASSWORD': '123456654fb',
+        'HOST': 'localhost',
+        'PORT': '',
     }
 }
 
@@ -161,6 +160,6 @@ EMAIL_PORT = 465
 EMAIL_USE_TLS = False 
 EMAIL_USE_SSL = True
 EMAIL_HOST_USER = 'batuhang002@gmail.com'
-EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
+EMAIL_HOST_PASSWORD = 'tzyaqblpffwkkbet'
 EMAIL_ADMIN = 'batuhang002@gmail.com'
 DEFAULT_FROM_EMAIL = 'batuhang002@gmail.com'
